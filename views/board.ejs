@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/css/board.css">
+<body>
+<div class="board">
+    <ul>
+        <%var i=0;%> 
+        <% categories.forEach(function(category) { %>
+            <div class="boards">
+                <li><%= category %></li>
+                <span><%= totalDistinctCategories[i] %></span>
+            </div>
+           <% i++;%>
+        <% }) %>
+
+    </ul>
+</div>
+<script src="/js/scr.js"></script>
+</body> 

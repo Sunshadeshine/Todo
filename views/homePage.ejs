@@ -1,0 +1,66 @@
+<body>
+    <section class="AddTask form_class">
+          
+            <form action="/create_todo" method="POST">
+             <div class="task_Class">
+                <input type="text" required name="taskname" placeholder="Task Name">
+            </div>
+            <div class="desc_Class">
+                <input type="textarea" required name="desc" placeholder="what do you need to do">
+            </div>
+            <div class="select_and_input">
+                <select name="category" required>
+                    <option value="" disabled selected>Select your option</option>
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Cleaning</option>
+                    <option>Market </option>
+                    <option>Others</option>
+                </select>
+                <input class="datesValues" type="date" name="dateValue" placeholder="Due data dd/mm/yyyy" required>
+            </div>
+                <button class="submitButton button-29" type="submit"><i class="fa fa-plus-square" > </i> Add Task</button>
+                
+            </form>
+            </section>
+     <section class="Tasks">
+          <% for(let i of todoList) { let j=0; let newIds='descids'+j; %>
+              
+                <div class="single_task " >
+                    <div class="d_flex row justify-content-between align-items-center" style="margin-bottom: 20px;">
+                    <div class="d_flex column" >
+                     <p id=<%= i._id %>  uid = <%= i._id %> class="dispdsc taskn"><%= i.task %></p>
+                         <div class="catesec">
+                        <%= i.category %>
+                        
+                         </div>
+                    </div>
+                    <div class="d_flex row " style ="font-size:0.7rem ;">
+                     <p id=<%= i._id + i.dueDate %> class="dueDate"  ><%= i.dueDate %></p>
+                     <input type="checkbox" name="delechack" class="delechack" onclick="checkedOrNot()" uid = <%= i._id %> >
+
+                    </div>
+                     </div>
+                   
+                    <div style="font-size:0.7rem ;">
+                       
+                        <p id=<%= i._id %>  uid = <%= i._id %> class="dispdsc"><%= i.desc %></p>
+                       
+                    </div>
+                    
+                    
+                     <!-- <div class="editClass"><a href="/editdata/?id=<%=i._id %>">Edit</a></div> -->
+                </div>
+                <% j++; } %>
+      </section>
+        <section>
+        <div class="createbuttn">
+        <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+        </div>
+         <div class="deletebuttn buttonDesign colorRed">
+        <i class="fa-solid fa-trash" id="deleteButton" type="submit" style="color: #ffffff;"></i>
+        </div>
+     </section>
+          
+</body>
+
