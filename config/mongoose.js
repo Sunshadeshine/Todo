@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todo_list_db');
+mongoose.connect(process.env.Mongo_url);
 const db = mongoose.connection;
 // error
 db.on('error',console.error.bind(console,'erroe connecting to db'));
